@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block title %}Home{% endblock title %}
+{% block content %}
+<h1>Home</h1>
+<hr>
+<form action="" method="POST">
+    {% csrf_token %}
+    <h3>To : <input type="email" name="To" id="To"></h3>
+    <h3>Message :-</h3>
+    <textarea name="content" id="content" cols="190" rows="20"></textarea>
+    <input type="submit" value="Send">
+</form>
+{% if message %}
+    <script>
+        window.onload = function(){
+            alert('{{text}}');
+        }
+    </script>
+{% endif %}
+<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>
+{% endblock content %}
